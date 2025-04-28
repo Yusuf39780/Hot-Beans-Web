@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Add relative positioning to the body */
+        }
+        .container {
+            width: 600px;
+            height: auto; /* Adjust height based on content */
+            background-color: black;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+        }
+        label {
+            color: white;
+            display: block;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        input[type="text"], textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        textarea {
+            height: auto;
+            min-height: 20px; /* Starts with a single line height */
+            resize: none; /* Prevents manual resizing */
+            overflow: hidden;
+        }
+        .day-option {
+            margin-top: 20px; /* Increased margin for more space between the day options */
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center; /* Align radio button and label horizontally */
+        }
+        .day-list {
+            margin-top: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 16px 32px; /* Increased size */
+            font-size: 22px; /* Larger text */
+            color: white; /* White text */
+            background-color: #000; /* Black button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            position: absolute; /* Absolute positioning */
+            top: 20px; /* Distance from the top */
+            left: 20px; /* Distance from the left */
+        }
+        .back-button:hover {
+            background-color: #333; /* Darker gray on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Application Form</h1>
+        <label for="first-name">1. What is your first name?</label>
+        <input type="text" id="first-name" name="first-name">
+        
+        <label for="last-name">2. What is your last name?</label>
+        <input type="text" id="last-name" name="last-name">
+
+        <label for="dob">3. What is your Date of Birth?</label>
+        <input type="text" id="dob" name="dob">
+        <!-- New sentence after Date of Birth field -->
+        <label for="id-reminder" style="color: white; font-size: 16px; margin-top: 10px;">Make sure to bring valid ID to the interview.</label>
+        
+        <label for="job-role">4. What job role are you applying for?</label>
+        <div class="day-list">
+            <div class="day-option">
+                <input type="radio" id="creative-director" name="job-role" value="Creative Director">
+                <label for="creative-director">Creative Director</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="graphic-designer" name="job-role" value="Graphic Designer">
+                <label for="graphic-designer">Graphic Designer</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="copywriter" name="job-role" value="Copywriter">
+                <label for="copywriter">Copywriter</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="project-manager" name="job-role" value="Project Manager">
+                <label for="project-manager">Project Manager</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="web-developer" name="job-role" value="Web Developer">
+                <label for="web-developer">Web Developer</label>
+            </div>
+        </div>
+        
+        <!-- New question and input for Day and Time selection -->
+        <label for="interview-day">5. Pick what day of the week you would like to take your interview:</label>
+        <div class="day-list">
+            <div class="day-option">
+                <input type="radio" id="monday" name="interview-day" value="Monday">
+                <label for="monday">Monday</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="tuesday" name="interview-day" value="Tuesday">
+                <label for="tuesday">Tuesday</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="wednesday" name="interview-day" value="Wednesday">
+                <label for="wednesday">Wednesday</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="thursday" name="interview-day" value="Thursday">
+                <label for="thursday">Thursday</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="friday" name="interview-day" value="Friday">
+                <label for="friday">Friday</label>
+            </div>
+        </div>
+
+        <!-- New question for time selection -->
+        <label for="interview-time">6. What time would you like your interview to take place?</label>
+        <div class="day-list">
+            <div class="day-option">
+                <input type="radio" id="time-10-00" name="interview-time" value="10:00">
+                <label for="time-10-00">10:00</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="time-10-30" name="interview-time" value="10:30">
+                <label for="time-10-30">10:30</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="time-11-00" name="interview-time" value="11:00">
+                <label for="time-11-00">11:00</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="time-11-30" name="interview-time" value="11:30">
+                <label for="time-11-30">11:30</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="time-12-00" name="interview-time" value="12:00">
+                <label for="time-12-00">12:00</label>
+            </div>
+            <div class="day-option">
+                <input type="radio" id="time-12-30" name="interview-time" value="12:30">
+                <label for="time-12-30">12:30</label>
+            </div>            
+            <div class="day-option">
+                <input type="radio" id="time-13-00" name="interview-time" value="13:00">
+                <label for="time-13-00">13:00</label>
+            </div>
+        </div>
+
+        <!-- New question asking why they want to work at Hot Beans Web -->
+        <label for="why-work">7. Why do you want to work at Hot Beans Web?</label>
+        <textarea id="why-work" name="why-work" oninput="autoExpand(this)"></textarea>
+
+        <!-- New question asking what interests them about the position -->
+        <label for="interest-position">8. What interests you about this position?</label>
+        <textarea id="interest-position" name="interest-position" oninput="autoExpand(this)"></textarea>
+    </div>	
+	<div class="button-container"> <a href="index.html" class="back-button">Back to Home</a> </div>
+    <script>
+        function autoExpand(textarea) {
+            textarea.style.height = "20px"; // Reset to single line
+            textarea.style.height = textarea.scrollHeight + "px"; // Expand based on content
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: purple;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: lightblue;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-right: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            left: -130px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Square in the top right corner */
+        .top-right-square {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-right-square img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .account-text {
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Main Content Layout */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+        }
+
+        /* Community Section (Right Side) */
+        .community-container {
+            width: 50%;
+            display: flex;
+            justify-content: right;
+        }
+
+        .community-box {
+            background-color: lightblue;
+            padding: 50px;
+            width: 600px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .community-title {
+            background-color: lightblue;
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .community-text {
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        /* Tips & Tricks Section (Left Side) */
+        .tips-container {
+            width: 50%;
+            display: flex;
+            justify-content: left;
+        }
+
+        .tips-box {
+            background-color: lightblue;
+            padding: 50px;
+            width: 600px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .tips-title {
+            background-color: lightblue;
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .tips-text {
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        /* Specific adjustment for the "Learn more about us" link */
+        .move-left {
+            position: relative;
+            left: -130px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .tips-container, .community-container {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+
+            .tips-box, .community-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <div class="navbar">
+        <img src="Images/Logo.png" alt="Hot Beans Web Logo" class="logo">
+        <div class="nav-links">
+            <a href="page 2.html">
+                <p100 class="nav-links">More information about the job description</p100>
+            </a>
+            <a href="page 3.html" class="move-left"><p100>Learn more about us</p100>
+            </a>
+            <a href="page 4.html" class="move-left">Get to know the team</a>
+            <a href="page 5.html" class="move-left"><p100>Job application form</p100>
+            </a>
+            <a href="page 6.html" class="move-left">Links to website development courses</a>
+        </div>
+    </div>
+
+    <!-- Top-right square with an image inside (now a hyperlink) -->
+    <a href="Acc page.html">
+        <div class="top-right-square">
+            <img src="Images/webpic9.PNG" alt="Image inside square">
+            <div class="account-text">My account</div>
+        </div>
+    </a>
+
+    <!-- Main Sections -->
+    <div class="container">
+        <!-- Tips & Tricks Section -->
+        <div class="tips-container">
+            <div class="tips-box">
+                <div class="tips-title">Tip's and trick's on how to secure a job in website development</div>
+                <p class="tips-text">
+                    At Hot Beans Web, if you don’t get offered the job, we don’t just neglect you and forget about you. 
+                    We want all of the people getting into website development and the people wanting to further carry on their career in web development to carry on their dream. 
+                    <a href="page 7.html" style="font-weight: bold;">Click here for more information.</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Community Section -->
+        <div class="community-container">
+            <div class="community-box">
+                <div class="community-title">Hot Beans Community</div>
+                <p class="community-text">
+                    Here at Hot Beans Web, we give job’s to the people who really want it and aspire to pursue their career in web development. 
+                    As the world is continuously moving forward at a rapid pace, the technology is moving just as rapidly, so we aim to keep up that pace, 
+                    and help make the lives of people using these website’s, and one’s who help make them, better. Come join our community and employers, 
+                    and help make the world a better place.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
