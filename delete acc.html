@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        #deleteButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        #deleteButton.enabled {
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        #timer {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Delete Your Account</h1>
+        <p>If you wish to delete your account, please click the button below after 5 seconds.</p>
+
+        <!-- Delete Button, initially disabled -->
+        <button id="deleteButton" disabled>Delete Account</button>
+
+        <div id="timer">You can delete your account in 5 seconds...</div>
+    </div>
+
+    <script>
+        // Set a 5-second timer before enabling the delete button
+        let countdown = 5;
+        const deleteButton = document.getElementById('deleteButton');
+        const timerElement = document.getElementById('timer');
+
+        // Update the timer every second
+        const timerInterval = setInterval(() => {
+            countdown--;
+            timerElement.textContent = `You can delete your account in ${countdown} second${countdown !== 1 ? 's' : ''}...`;
+
+            if (countdown === 0) {
+                clearInterval(timerInterval);
+                deleteButton.disabled = false;
+                deleteButton.classList.add('enabled');
+                timerElement.textContent = 'You can now delete your account!';
+            }
+        }, 1000);
+        
+        // Optional: Add an event listener for the delete action (it could redirect to a delete account page or trigger a delete function)
+        deleteButton.addEventListener('click', function() {
+            alert("Account deletion in progress...");
+            // Perform your delete account logic here, such as redirecting or calling an API
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Selection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .gap {
+            height: 20px;
+        }
+
+        hr {
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        .font-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .font-option {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .font-option:hover {
+            background-color: lightgray;
+        }
+
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: gray;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Font</h1>
+
+    <div class="gap"></div>
+    <hr>
+    <div class="gap"></div>
+
+    <div class="font-options">
+        <div class="font-option" onclick="changeFont('Arial, sans-serif')">Arial</div>
+        <div class="font-option" onclick="changeFont('Times New Roman, serif')">Times New Roman</div>
+        <div class="font-option" onclick="changeFont('Courier New, monospace')">Courier New</div>
+        <div class="font-option" onclick="changeFont('Georgia, serif')">Georgia</div>
+        <div class="font-option" onclick="changeFont('Verdana, sans-serif')">Verdana</div>
+    </div>
+
+    <button class="back-button" onclick="backToPage()">Back</button>
+
+    <script>
+        const pagesToApplyFont = [
+            'page 1.html',
+            'Acc page.html',
+            'delete acc.html',
+            'Narrator page.html',
+			'page 2.html',
+			'page 3.html',
+			'page 4.html',
+			'page 5.html',
+			'page 6.html',
+			'page 7.html',
+			'font page.html'
+        ];
+
+        function changeFont(font) {
+            localStorage.setItem('selectedFont', font);
+            applyFont(font);
+        }
+
+        function applyFont(font) {
+            document.body.style.fontFamily = font;
+            let styleTag = document.createElement("style");
+            styleTag.innerHTML = `* { font-family: ${font} !important; }`;
+            document.head.appendChild(styleTag);
+        }
+
+        window.onload = function() {
+            let savedFont = localStorage.getItem('selectedFont');
+            if (savedFont) {
+                applyFont(savedFont);
+            }
+        };
+
+        function backToPage() {
+            window.location.href = 'Acc%20page.html';
+        }
+    </script>
+
+</body>
+</html>

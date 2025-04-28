@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            background-color: lightblue;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* Top Right Square */
+        .top-right-square {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px hidden black;
+            overflow: hidden;
+        }
+
+        .top-right-square img {
+            max-width: 100%;
+            max-height: 100%;
+            position: relative;
+        }
+
+        /* Sidebar Button */
+        .sidebar button {
+            display: block;
+            width: 90%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background-color: #ddd;
+        }
+
+        /* Settings Page Styling */
+        .settings-container, .accessibility-container {
+            margin-left: 250px;
+        }
+
+        .settings-container h1, .accessibility-container h1 {
+            font-size: 32px; /* Larger heading */
+        }
+
+        .settings-container p, .accessibility-container p {
+            font-size: 20px; /* Larger paragraph text */
+        }
+
+        .settings-container hr, .accessibility-container hr {
+            width: 1000px;
+        }
+
+        /* Spacer for "Back to Home" button */
+        .spacer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Sidebar Menu</h2>
+        <p>Navigation links here</p>
+        <button onclick="showSettings()">Settings</button> <!-- Settings Button -->
+        <button onclick="showAccessibility()">Accessibility</button> <!-- Accessibility Button -->
+
+        <!-- Spacer to push 'Back to Home' to the bottom -->
+        <div class="spacer"></div>
+
+        <!-- Back to Home Button -->
+        <button onclick="backToHome()">Back to Home</button> <!-- Back to Home Button -->
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="mainContent">
+        <h1>My Account</h1>
+        <p>This is a new page for your website with a sidebar and an image upload feature.</p>
+    </div>
+
+    <!-- Top Right Square -->
+    <div class="top-right-square" id="imageContainer">
+        <input type="file" id="imageUpload" accept="image/*" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+        <img id="previewImage" src="Images/webpic9.PNG" alt="Upload Image" style="height: 150px; width: 150px; margin: 0; margin-bottom: 16px;">
+        <h3> My Account </h3>
+    </div>
+
+    <script>
+        // Function to change the main content when "Settings" is clicked
+        function showSettings() {
+            document.getElementById("mainContent").innerHTML = `
+                <div class="settings-container">
+                    <h1>Settings</h1>
+                    <br><br>
+                    <p>Here you can adjust your account settings.</p>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    <br>
+                    <p>Your account ID is: <strong>6y3u3xin4fsw28jp</strong></p>
+                    <br>
+                    <hr>
+                    <br>
+                    <br>
+                    <p>If you wish to delete your account click <a href="delete acc.html">here</a></p>
+                </div>
+            `;
+        }
+
+        // Function to change the main content when "Accessibility" is clicked
+        function showAccessibility() {
+            document.getElementById("mainContent").innerHTML = `
+                <div class="accessibility-container">
+                    <h1>Accessibility</h1>
+                    <br><br>
+                    <p>Here you can adjust your accessibility settings.</p>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    <p>If you wish to change the font of this website click <a href="font page.html">here</a></p>
+                    <br>
+                    <hr>
+                    <br>
+                    <!-- Added another sentence below the font change option -->
+                    <p>If you'd like to adjust the contrast of the website, click <a href="contrast page.html">here</a></p>
+                </div>
+            `;
+        }
+
+        // Function to redirect to a custom page
+        function redirectUser() {
+            let customUrl = prompt("Enter the URL you want to redirect to:");
+            if (customUrl) {
+                window.location.href = customUrl;
+            }
+        }
+
+        // Function for the "Back to Home" button
+        function backToHome() {
+            window.location.href = 'index.html';  // Replace with the correct URL for your homepage
+        }
+
+        // Image upload functionality
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('previewImage');
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

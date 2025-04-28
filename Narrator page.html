@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 36px;
+            position: absolute;
+            top: 20px; /* Move title to the top */
+            left: 50%;
+            transform: translateX(-50%); /* Center the title horizontally */
+            margin-bottom: 20px;
+        }
+
+        .gap {
+            height: 20px;
+        }
+
+        hr {
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        .narrator-option {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            border-radius: 50px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .spacer {
+            margin-top: auto;
+        }
+
+        /* Style for the back button */
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Narrator</h1>
+    <div class="gap"></div>
+    <hr>
+    <div class="gap"></div>
+
+    <div class="narrator-option">
+        <p>If you wish to turn on or off the Narrator, toggle the switch:</p>
+        <label class="switch">
+            <input type="checkbox" id="narrator-toggle" onclick="toggleNarrator(this.checked)">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="gap"></div>
+
+    <div>
+        <p>Click on any text to hear it read aloud:</p>
+        <p id="clickableText1" onclick="speakText('This is the first clickable text.')">This is the first clickable text.</p>
+        <p id="clickableText2" onclick="speakText('Here is another clickable text you can try.')">Here is another clickable text you can try.</p>
+    </div>
+
+    <!-- Back Button -->
+	<a href="Acc page.html"><button class="back-button" onclick="goBack()">Back</button></a>
+
+    <script>
+        // Function to toggle the Narrator on/off
+        function toggleNarrator(isOn) {
+            if (isOn) {
+                localStorage.setItem('narratorOn', 'true');
+                startNarrator();
+            } else {
+                localStorage.setItem('narratorOn', 'false');
+                stopNarrator();
+            }
+        }
+
+        // Function to start the Narrator (Text-to-Speech)
+        function startNarrator() {
+            if ('speechSynthesis' in window) {
+                const synth = window.speechSynthesis;
+                const textToNarrate = document.body.innerText; // Get all text in the body
+                const utterance = new SpeechSynthesisUtterance(textToNarrate);
+                utterance.lang = 'en-US';
+                synth.speak(utterance);
+                localStorage.setItem('narratorActive', 'true');
+            } else {
+                alert("Sorry, your browser doesn't support the Web Speech API.");
+            }
+        }
+
+        // Function to stop the Narrator
+        function stopNarrator() {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+            }
+            localStorage.setItem('narratorActive', 'false');
+        }
+
+        // Function to speak the text when a paragraph is clicked
+        function speakText(text) {
+            if (localStorage.getItem('narratorOn') === 'true' && 'speechSynthesis' in window) {
+                const synth = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                synth.speak(utterance);
+            }
+        }
+
+        // Function for the back button to navigate to the previous page
+        function goBack() {
+            window.history.back();
+        }
+
+        // Apply narrator setting based on localStorage
+        window.onload = function() {
+            const narratorStatus = localStorage.getItem('narratorOn');
+            if (narratorStatus === 'true') {
+                document.getElementById('narrator-toggle').checked = true;
+                startNarrator();
+            } else {
+                document.getElementById('narrator-toggle').checked = false;
+            }
+        };
+    </script>
+
+</body>
+</html>

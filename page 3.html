@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hot Beans Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .left-side {
+            width: 50%;
+            background: url('https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?cs=srgb&dl=pexels-fauxels-3183165.jpg&fm=jpg') no-repeat center center/cover;
+        }
+        .right-side {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 50px;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .right-side h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .right-side p {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        .button-container {
+            margin: 30px 0; /* Adds space around the button */
+        }
+        .back-button {
+            display: inline-block;
+            padding: 16px 32px; /* Increased size */
+            font-size: 22px; /* Larger text */
+            color: white; /* White text */
+            background-color: #000; /* Black button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333; /* Darker gray on hover */
+        }
+        .content-container {
+            display: flex;
+            width: 100%;
+            margin-top: 100px; /* Decreased margin-top to move the text up */
+        }
+        .left-text {
+            width: 50%;
+        }
+        .right-list {
+            width: 50%;
+            padding-left: 30px;
+        }
+        .right-list ul {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-side"></div>
+    <div class="right-side">
+        <h1>Learn more about us</h1>
+        <p>
+            Here at Hot Beans Web, we like to speak about our own interests and hobbies, and not just talk about work and the company. By sharing our own interests with each other, we don’t get overwhelmed by doing and talking about work constantly. We encourage our staff to express themselves to each other and us, so we can grow a stronger bond between us. When joining Hot Beans Web, we want the staff and work force here to be together.
+        </p>
+        
+        <!-- Button to go back to Home -->
+        <div class="button-container">
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+
+        <div class="content-container">
+            <div class="left-text">
+                <p>
+                    Over the recent years, here at Hot Beans Web, we also think about the mental well-being of our staff. 
+                    So in order to maintain that mental well-being, we have been letting our staff take part in activities 
+                    and games that we have organized or prepared for them, such as:
+                </p>
+            </div>
+            <div class="right-list">
+                <ul>
+                    <li>Mini golf for the whole office</li>
+                    <li>We ordered food of the employees' choice then watched a movie</li>
+                    <li>We invited them to get drinks altogether at a bar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

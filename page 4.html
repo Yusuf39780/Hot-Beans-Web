@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            position: relative;
+        }
+        h1 {
+            position: absolute;
+            top: 20px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            font-size: 36px; /* Increased font size for heading */
+        }
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            z-index: 1; /* To make sure the team members stay in front */
+        }
+        .team-member {
+            width: 250px;
+            height: 250px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .team-member p {
+            font-size: 24px; /* Increased font size for member names */
+            font-weight: bold;
+            margin: 0;
+        }
+        .team-member .job-role {
+            font-size: 20px; /* Increased font size for job roles */
+            font-weight: normal;
+            color: #666;
+            margin-top: 15px;
+        }
+        .info-container {
+            position: absolute;
+            top: 400px; /* Increased top value to move the paragraph further down */
+            right: 20px; /* Positioned on the right-hand side */
+            max-width: 300px;
+            font-size: 22px; /* Increased font size for the paragraph */
+            color: #444;
+            text-align: left;
+            line-height: 1.8;  /* Increased line height for more space between lines */
+            padding: 20px; /* Added padding to make the box larger */
+            z-index: 0; /* Ensure the paragraph is behind the team container */
+        }
+        /* Styling for the "Back to Home" button */
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2; /* Make sure it's above other content */
+        }
+
+        .back-home-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling for the link inside the button */
+        .back-button {
+            color: white; /* Set the text color to white */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .back-button:hover {
+            text-decoration: none; /* Keep it without underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Meet the Team</h1>
+    <button class="back-home-btn" onclick="window.location.href='index.html'">Back To Home</button>
+    <div class="team-container">
+        <div class="team-member">
+            <img src="Images/webpic3.png" alt="Team Member 1">
+            <p>Emma Johnson</p>
+            <p class="job-role">Creative Director</p>
+        </div>
+        <div class="team-member">
+            <img src="Images/webpic4.png" alt="Team Member 2">
+            <p>Liam Smith</p>
+            <p class="job-role">Graphic Designer</p>
+        </div>
+        <div class="team-member">
+            <img src="Images/webpic5.png" alt="Team Member 3">
+            <p>Sofia Martinez</p>
+            <p class="job-role">Copywriter</p>
+        </div>
+        <div class="team-member">
+            <img src="Images/webpic6.png" alt="Team Member 4">
+            <p>Noah Patel</p>
+            <p class="job-role">Graphic Designer</p>
+        </div>
+        <div class="team-member">
+            <img src="Images/webpic7.png" alt="Team Member 5">
+            <p>Olivia Chen</p>
+            <p class="job-role">Project Manager</p>
+        </div>
+        <div class="team-member">
+            <img src="Images/webpic8.PNG" alt="Team Member 6">
+            <p>Aiden Brown</p>
+            <p class="job-role">Web Developer</p>
+        </div>
+    </div>
+    <div class="info-container">
+        <p>These are some of the people who work in Hot Beans Web, and they are also part of a team who are helping to make this world a better place.</p>
+    </div>
+    <div class="back-home-btn">
+        <a href="index.html" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
